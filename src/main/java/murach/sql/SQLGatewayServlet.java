@@ -3,7 +3,6 @@ package murach.sql;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.xml.transform.Result;
 
 import java.sql.*;
 
@@ -17,12 +16,15 @@ public class SQLGatewayServlet extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             // get a connection
-            String DBurl = "jdbc:sqlserver://localhost:1433;"
-                    + "databaseName=SQLGateway;"
-                    + "encrypt=true;"
-                    + "trustServerCertificate=true;"
-                    + "loginTimeout=5";
-            Connection connection = DriverManager.getConnection(DBurl, "test-web-sqlgateway", "123456");
+            String url =
+                    "jdbc:sqlserver://ngantruong-ltweb.database.windows.net:1433;"
+                            + "database=SQLGateway;"
+                            + "encrypt=true;"
+                            + "trustServerCertificate=false;"
+                            + "hostNameInCertificate=*.database.windows.net;"
+                            + "loginTimeout=30";
+
+            Connection connection = DriverManager.getConnection(url, "ngantruong", "Truong@23162107");
 
             // create a statement
             Statement statement = connection.createStatement();
