@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/sqlgateway">
     <Resource name="jdbc/murach" auth="Container"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
               driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-              url="jdbc:sqlserver://localhost:1433;DatabaseName=SQLGateway"
-              username="test-web-sqlgateway" password="123456"
-              maxActive="100" maxIdle="30" maxWait="10000"
-              logAbandoned="true" removeAbandoned="true"
-              removeAbandonedTimeout="60" type="javax.sql.DataSource" />
+              url="jdbc:sqlserver://ngantruong-ltweb.database.windows.net:1433;
+               database=SQLGateway;
+               encrypt=true;
+               trustServerCertificate=false;
+               hostNameInCertificate=*.database.windows.net;
+               loginTimeout=30"
+              username="ngantruong"
+              password="Truong@23162107"
+              maxActive="20" maxIdle="5"/>
 </Context>
